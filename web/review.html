@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hard Subtitle Review</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="review-shell">
+      <aside class="review-list-panel" aria-label="OCR review list">
+        <div class="sidebar-header">
+          <div>
+            <h1>Hard Subtitle Review</h1>
+            <p id="reviewMeta">Loading OCR records...</p>
+          </div>
+          <a class="small-link" href="./index.html">Study</a>
+        </div>
+
+        <div class="filters" role="group" aria-label="Review filters">
+          <button class="filter-button active" data-filter="all" type="button">All</button>
+          <button class="filter-button" data-filter="todo" type="button">Todo</button>
+          <button class="filter-button" data-filter="approved" type="button">Approved</button>
+          <button class="filter-button" data-filter="problem" type="button">Problem</button>
+        </div>
+
+        <label class="search-box">
+          <span>Search</span>
+          <input id="reviewSearchInput" type="search" placeholder="Japanese or Chinese" />
+        </label>
+
+        <div id="reviewList" class="sentence-list"></div>
+      </aside>
+
+      <section class="review-workspace" aria-live="polite">
+        <div class="status-row">
+          <span id="reviewPositionLabel">No item selected</span>
+          <span id="reviewStatusLabel">not saved</span>
+        </div>
+
+        <p class="source-note">Local prototype. Demo fixtures are authored text, not ASR output. Compare text with the clip and crop. Approval saves to CSV; run the rebuild command to update Study.</p>
+        <section class="review-main-grid">
+          <div class="review-media-column">
+            <video id="reviewVideoPlayer" class="video-player review-video" controls preload="metadata" playsinline></video>
+            <img id="cropImage" class="crop-preview" alt="Subtitle crop for OCR review" />
+            <div class="action-row">
+              <button id="playReviewVideoButton" class="primary-button" type="button">Play Video</button>
+              <button id="copyAsrButton" type="button">Use ASR</button>
+              <button id="copyOcrButton" type="button">Use OCR</button>
+            </div>
+          </div>
+
+          <div class="review-edit-column">
+            <div class="time-row">
+              <span id="reviewTimeLabel">--:--</span>
+              <span id="ocrStatusText">OCR draft</span>
+            </div>
+
+            <div class="compare-grid">
+              <label>
+                <span>ASR draft / demo fixture</span>
+                <textarea id="asrText" readonly rows="3"></textarea>
+              </label>
+              <label>
+                <span>OCR Japanese</span>
+                <textarea id="ocrText" readonly rows="3"></textarea>
+              </label>
+            </div>
+
+            <label class="editor-block">
+              <span>Correct Japanese</span>
+              <textarea id="correctedText" rows="4" spellcheck="false"></textarea>
+            </label>
+
+            <label class="editor-block">
+              <span>Chinese Translation</span>
+              <textarea id="chineseTextReview" readonly rows="2"></textarea>
+            </label>
+
+            <label class="editor-block">
+              <span>Notes</span>
+              <textarea id="reviewNotes" rows="2" placeholder="Optional note"></textarea>
+            </label>
+
+            <div class="action-row">
+              <button id="saveDraftButton" type="button">Save Draft</button>
+              <button id="approveButton" class="primary-button" type="button">Approve</button>
+              <button id="markProblemButton" type="button">Mark Problem</button>
+              <button id="nextReviewButton" type="button">Next</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./review.js"></script>
+  </body>
+</html>

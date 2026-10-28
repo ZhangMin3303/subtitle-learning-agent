@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subtitle Learning Agent</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Sentence list">
+        <div class="sidebar-header">
+          <div>
+            <h1>Subtitle Learning Agent</h1>
+            <p id="datasetMeta">Loading dataset...</p>
+          </div>
+          <a class="small-link" href="./review.html">OCR</a>
+          <button id="exportButton" class="icon-button" title="Export progress" type="button">Export</button>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filters">
+          <button class="filter-button active" data-filter="all" type="button">All</button>
+          <button class="filter-button" data-filter="review" type="button">Review</button>
+          <button class="filter-button" data-filter="known" type="button">Known</button>
+          <button class="filter-button" data-filter="fix" type="button">Fix</button>
+        </div>
+
+        <label class="search-box">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Japanese or Chinese" />
+        </label>
+
+        <div id="sentenceList" class="sentence-list"></div>
+      </aside>
+
+      <section class="study-panel" aria-live="polite">
+        <p id="sourceNote" class="source-note"></p>
+        <div class="status-row">
+          <span id="positionLabel">No item selected</span>
+          <span id="qualityLabel">ASR draft</span>
+        </div>
+
+        <article class="sentence-view">
+          <div class="time-row">
+            <span id="timeLabel">--:--</span>
+            <span id="reviewLabel">pending</span>
+          </div>
+
+          <div class="media-learning-grid">
+            <video id="videoPlayer" class="video-player" controls preload="metadata" playsinline></video>
+
+            <div class="line-panel">
+              <p id="japaneseText" class="japanese-text">Loading...</p>
+              <p id="chineseText" class="chinese-text"></p>
+
+              <audio id="audioPlayer" controls preload="metadata"></audio>
+
+              <div class="action-row" role="group" aria-label="Study actions">
+                <button id="playButton" class="primary-button" type="button">Play Video</button>
+                <button id="audioButton" type="button">Play Audio</button>
+                <button id="reviewButton" type="button">Review</button>
+                <button id="knownButton" type="button">Known</button>
+                <button id="fixButton" type="button">Needs Fix</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <section class="token-panel">
+          <div class="panel-title">
+            <h2>Rule token preview</h2>
+            <span id="analyzerLabel">fallback</span>
+          </div>
+          <div id="tokenList" class="token-list"></div>
+        </section>
+
+        <section class="notes-panel">
+          <div class="panel-title">
+            <h2>Notes</h2>
+            <span>saved locally</span>
+          </div>
+          <textarea id="noteInput" rows="3" placeholder="Add your correction, reading note, or grammar question"></textarea>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

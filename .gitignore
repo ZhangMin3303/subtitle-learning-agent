@@ -1,0 +1,25 @@
+# All user/generated data: media, frames, model outputs, reviews and progress
+/data/
+/models/
+/.cache/
+/.venv*/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+# Only text fixtures are considered for publication; no binary media or weights.
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wav
+*.mp3
+*.flac
+*.safetensors
+*.pt
+*.pth
+*.bin

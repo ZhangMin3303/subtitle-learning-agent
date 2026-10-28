@@ -1,0 +1,4 @@
+-r requirements.txt
+# Optional experimental backends; large transitive dependencies and separate model caches.
+manga-ocr==0.1.14
+easyocr==1.7.2

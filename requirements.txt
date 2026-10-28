@@ -1,0 +1,2 @@
+# Core demo, cropping and web dataset; Python 3.11+ recommended, tested on 3.13.
+Pillow==12.2.0
